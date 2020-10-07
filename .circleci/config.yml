@@ -4,11 +4,11 @@ jobs:
     working_directory: ~/workspace
     docker:
       - image: circleci/node:4.8.2
-      steps:
-        - checkout
-        - run:
+    steps:
+      - checkout
+      - run:
           name: Echo
-          command: echo hello, world.
+          command: echo "hello, world."
 
 workflows:
   version: 2.1
