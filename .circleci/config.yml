@@ -9,3 +9,9 @@ jobs:
         - run:
           name: Echo
           command: echo hello, world.
+
+workflows:
+  version: 2.1
+  fuga:
+    jobs:
+      - hoge
