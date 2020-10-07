@@ -42,7 +42,7 @@ jobs:
         jobs:
           - Hello-World
           - I-Have-Code
-              requries:
+              requires:
                 - Hello-World
           - Run-with-node:
               requires:
