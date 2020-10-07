@@ -36,22 +36,22 @@ jobs:
           command: |
               echo 'Do work once the approval has completed'
   
-  workflows:
-      version: 2.1
-      Example_Workflow:
-        jobs:
-          - Hello-World:
-          - I-Have-Code:
-              requires:
-                - Hello-World
-          - Run-with-node:
-              requires:
-                - Hello-World
-          - Hold-For-Approval:
-              type: approval
-              requires:
-                - Run-with-node
-                - I-Have-Code
-          - Now-Complete:
-              requires:
-                - Hold-For-Approval
+workflows:
+    version: 2.1
+    Example_Workflow:
+      jobs:
+        - Hello-World:
+        - I-Have-Code:
+            requires:
+              - Hello-World
+        - Run-with-node:
+            requires:
+              - Hello-World
+        - Hold-For-Approval:
+            type: approval
+            requires:
+              - Run-with-node
+              - I-Have-Code
+        - Now-Complete:
+            requires:
+              - Hold-For-Approval
