@@ -40,8 +40,8 @@ jobs:
       version: 2.1
       Example_Workflow:
         jobs:
-          - Hello-World
-          - I-Have-Code
+          - Hello-World:
+          - I-Have-Code:
               requires:
                 - Hello-World
           - Run-with-node:
