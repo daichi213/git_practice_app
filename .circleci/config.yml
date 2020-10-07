@@ -16,21 +16,25 @@ jobs:
       - checkout
       - run:
           name: コードの取得
-          command: | ls -al echo '^^^That should look familiar^^^'
+          command: |
+             ls -al
+             echo '^^^That should look familiar^^^'
   Run-with-node:
     docker:
       - image: circleci/node:10-browsers
     steps:
       - run:
           name: ノードを持つコンテナでの実行
-          command: | node -v
+          command: |
+              node -v
   Now-Complete:
     docker:
       - image: alpine:3.7
     steps:
       - run:
           name: 承認の完了
-          command: | echo 'Do work once the approval has completed'
+          command: |
+              echo 'Do work once the approval has completed'
   
   workflows:
       version: 2.1
@@ -43,7 +47,7 @@ jobs:
           - Run-with-node:
               requires:
                 - Hello-World
-          - Hold-For-Approval
+          - Hold-For-Approval:
               type: approval
               requires:
                 - Run-with-node
