@@ -27,8 +27,7 @@ jobs:
       - checkout
       - run:
           name: ノードを持つコンテナでの実行
-          command: |
-              node -v
+          command: node -v
   Now-Complete:
     docker:
       - image: alpine:3.7
@@ -36,8 +35,7 @@ jobs:
       - checkout
       - run:
           name: 承認の完了
-          command: |
-              echo 'Do work once the approval has completed'
+          command: echo 'Do work once the approval has completed'
 
 workflows:
   version: 2.1
