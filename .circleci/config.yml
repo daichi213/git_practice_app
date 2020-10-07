@@ -1,29 +1,11 @@
 version: 2.1
 jobs:
-  build:
+  hoge:
+    working_directory: ~/workspace
     docker:
-      - image: circleci/ruby:2.5.0-node-browsers
-    steps:
-      - run: mkdir -p /tmp/workspace
-      - run: echo 'This is artifact' >> /tmp/workspace/artifact.txt
-      - run: cat /tmp/workspace/artifact.txt
-      - persist_to_workspace:
-            root: /tmp/workspace
-            paths:
-                - artifact.txt
-  deploy:
-    docker:
-      - image: circleci/ruby:2.5.0-node-browsers
-    steps:
-      - attach_workspace:
-            at: /tmp/workspace
-      - run: cat /tmp/workspace/artifact.txt
-
-workflows:
-  version: 2.1
-  build-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - image: circleci/node:4.8.2
+      steps:
+        - checkout
+        - run:
+          name: Echo
+          command: echo hello, world.
